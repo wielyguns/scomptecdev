@@ -17,7 +17,7 @@
 				</div>
 			</div>
 			<div class="col-md-4 panel-action">
-				<a class="btn btn-primary" href="{{ route('pendaftaran_add') }}">Tambah Pendaftaran</a>
+				<a class="btn btn-primary" href="{{ route('siswa_add') }}">Tambah Pendaftaran</a>
 			</div>
 		</div>
 		<div class="panel-body">

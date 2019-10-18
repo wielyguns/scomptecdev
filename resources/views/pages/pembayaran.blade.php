@@ -50,7 +50,7 @@
                             <td class="text-right">
                                 <div class="dropdown more-action">
                                     <div class="dropdown-action" data-toggle="dropdown">Aksi</div>
-                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiP" data-toggle="modal" data-target="#modalKwitansiP"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropdown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus</span></a></div>
+                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiP" data-toggle="modal" data-target="#modalKwitansiP"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropdown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item item-danger" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus</span></a></div>
                                 </div>
                             </td>
                         </tr>
@@ -66,7 +66,7 @@
                             <td class="text-right">
                                 <div class="dropdown more-action">
                                     <div class="dropdown-action" data-toggle="dropdown">Aksi</div>
-                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiR" data-toggle="modal" data-target="#modalKwitansiR"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropdown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus</span></a></div>
+                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiR" data-toggle="modal" data-target="#modalKwitansiR"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropdown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item item-danger" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus</span></a></div>
                                 </div>
                             </td>
                         </tr>
@@ -82,7 +82,7 @@
                             <td class="text-right">
                                 <div class="dropdown more-action">
                                     <div class="dropdown-action" data-toggle="dropdown">Aksi</div>
-                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiR" data-toggle="modal" data-target="#modalKwitansiR"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropdown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus </span></a></div>
+                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiR" data-toggle="modal" data-target="#modalKwitansiR"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropdown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item item-danger" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus</span></a></div>
                                 </div>
                             </td>
                         </tr>
@@ -98,7 +98,7 @@
                             <td class="text-right">
                                 <div class="dropdown more-action">
                                     <div class="dropdown-action" data-toggle="dropdown">Aksi</div>
-                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiR" data-toggle="modal" data-target="#modalKwitansiR"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus</span></a></div>
+                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiR" data-toggle="modal" data-target="#modalKwitansiR"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropdown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item item-danger" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus</span></a></div>
                                 </div>
                             </td>
                         </tr>
@@ -114,7 +114,7 @@
                             <td class="text-right">
                                 <div class="dropdown more-action">
                                     <div class="dropdown-action" data-toggle="dropdown">Aksi</div>
-                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiR" data-toggle="modal" data-target="#modalKwitansiR"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropdown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus</span></a></div>
+                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiR" data-toggle="modal" data-target="#modalKwitansiR"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropdown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item item-danger" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus</span></a></div>
                                 </div>
                             </td>
                         </tr>
