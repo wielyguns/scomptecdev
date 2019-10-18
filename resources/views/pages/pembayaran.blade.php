@@ -4,217 +4,125 @@
 
 @section('content')
 
-<div class="box-content">
-	<section class="content-head">
-		<div class="content-title">
-			<h1 class="title">Pembayaran</h1>
-		</div>
-	</section>
-	<section class="content-wrap">
-	    <nav class="nav nav-tabs"><a class="nav-item nav-link active" data-toggle="tab" href="#nav1">Semua Pembayaran</a><a class="nav-item nav-link" data-toggle="tab" href="#nav2">Pembayaran Hari Ini</a></nav>
-	    <div class="tab-content">
-	        <div class="tab-pane fade show active" id="nav1">
-	            <div class="filter-wrap">
-	                <div class="filter">
-	                    <div class="item">
-	                        <select class="select-control">
-	                            <option selected="selected">Semua jenis kursus</option>
-	                            <option>Private</option>
-	                            <option>Reguler</option>
-	                        </select>
-	                    </div>
-	                    <div class="item">
-	                        <select class="select-control">
-	                            <option selected="selected">Semua program</option>
-	                            <option>Aplikasi Perkantoran</option>
-	                            <option>Desain Grafis</option>
-	                            <option>Program 3</option>
-	                            <option>Program 4</option>
-	                            <option>Program 5</option>
-	                            <option>Program 6</option>
-	                            <option>Program 7</option>
-	                            <option>Program 8</option>
-	                        </select>
-	                    </div>
-	                    <div class="search">
-	                        <form>
-	                            <input class="form-control" type="text" placeholder="Cari ..." />
-	                        </form>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="table-wrap">
-	                <table class="table">
-	                    <thead>
-	                        <tr>
-	                            <th><span>No Pembayaran</span></th>
-	                            <th><span>Jenis Kursus</span></th>
-	                            <th><span>Tgl. Pembayaran</span></th>
-	                            <th><span>Terima Dari</span></th>
-	                            <th><span>Jumlah Uang</span></th>
-	                            <th><span>Program</span></th>
-	                            <th><span>Kelas</span></th>
-	                            <th><span class="sr-only">Action</span></th>
-	                        </tr>
-	                    </thead>
-	                    <tbody>
-	                        <tr>
-	                            <td>201901-00001</td>
-	                            <td>Private</td>
-	                            <td>Senin, 10 Jan 2019</td>
-	                            <td>Sheany Inggraeni</td>
-	                            <td class="text-right">Rp 2.150.000<a class="fal fa-info-circle" tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Terbilang" data-content="Dua Juta Seratus Lima Puluh Ribu Rupiah"></a></td>
-	                            <td>Desktop Publishing</td>
-	                            <td>DPB.SHEANY</td>
-	                            <td class="text-right">
-	                                <div class="dropdown more-action">
-	                                    <div class="dropdown-action" data-toggle="dropdown"><i class="far fa-ellipsis-h"></i></div>
-	                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiP" data-toggle="modal" data-target="#modalKwitansiP"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropdown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus</span></a></div>
-	                                </div>
-	                            </td>
-	                        </tr>
-	                        <tr>
-	                            <td>201901-00002</td>
-	                            <td>Regular</td>
-	                            <td>Senin, 10 Jan 2019</td>
-	                            <td>Irfan Adi Pesetya</td>
-	                            <td class="text-right">Rp 300.000<a class="fal fa-info-circle" tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Terbilang" data-content="Tiga Ratus Ribu Rupiah"></a></td>
-	                            <td>Administrasi Perkantoran</td>
-	                            <td>ADM.007</td>
-	                            <td class="text-right">
-	                                <div class="dropdown more-action">
-	                                    <div class="dropdown-action" data-toggle="dropdown"><i class="far fa-ellipsis-h"></i></div>
-	                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiR" data-toggle="modal" data-target="#modalKwitansiR"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropdown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus</span></a></div>
-	                                </div>
-	                            </td>
-	                        </tr>
-	                        <tr>
-	                            <td>201901-00002</td>
-	                            <td>Regular</td>
-	                            <td>Senin, 10 Jan 2019</td>
-	                            <td>Irfan Adi Pesetya</td>
-	                            <td class="text-right">Rp 300.000<a class="fal fa-info-circle" tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Terbilang" data-content="Tiga Ratus Ribu Rupiah"></a></td>
-	                            <td>Administrasi Perkantoran</td>
-	                            <td>ADM.007</td>
-	                            <td class="text-right">
-	                                <div class="dropdown more-action">
-	                                    <div class="dropdown-action" data-toggle="dropdown"><i class="far fa-ellipsis-h"></i></div>
-	                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiR" data-toggle="modal" data-target="#modalKwitansiR"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropdown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus </span></a></div>
-	                                </div>
-	                            </td>
-	                        </tr>
-	                        <tr>
-	                            <td>201901-00002</td>
-	                            <td>Regular</td>
-	                            <td>Senin, 10 Jan 2019</td>
-	                            <td>Irfan Adi Pesetya</td>
-	                            <td class="text-right">Rp 300.000<a class="fal fa-info-circle" tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Terbilang" data-content="Tiga Ratus Ribu Rupiah"></a></td>
-	                            <td>Administrasi Perkantoran</td>
-	                            <td>ADM.007</td>
-	                            <td class="text-right">
-	                                <div class="dropdown more-action">
-	                                    <div class="dropdown-action" data-toggle="dropdown"><i class="far fa-ellipsis-h"></i></div>
-	                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiR" data-toggle="modal" data-target="#modalKwitansiR"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus</span></a></div>
-	                                </div>
-	                            </td>
-	                        </tr>
-	                        <tr>
-	                            <td>201901-00002</td>
-	                            <td>Regular</td>
-	                            <td>Senin, 10 Jan 2019</td>
-	                            <td>Irfan Adi Pesetya</td>
-	                            <td class="text-right">Rp 300.000<a class="fal fa-info-circle" tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Terbilang" data-content="Tiga Ratus Ribu Rupiah"></a></td>
-	                            <td>Administrasi Perkantoran</td>
-	                            <td>ADM.007</td>
-	                            <td class="text-right">
-	                                <div class="dropdown more-action">
-	                                    <div class="dropdown-action" data-toggle="dropdown"><i class="far fa-ellipsis-h"></i></div>
-	                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiR" data-toggle="modal" data-target="#modalKwitansiR"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropdown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus</span></a></div>
-	                                </div>
-	                            </td>
-	                        </tr>
-	                        <tr>
-	                            <td>201901-00002</td>
-	                            <td>Regular</td>
-	                            <td>Senin, 10 Jan 2019</td>
-	                            <td>Irfan Adi Pesetya</td>
-	                            <td class="text-right">Rp 300.000<a class="fal fa-info-circle" tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Terbilang" data-content="Tiga Ratus Ribu Rupiah"></a></td>
-	                            <td>Administrasi Perkantoran</td>
-	                            <td>ADM.007</td>
-	                            <td class="text-right">
-	                                <div class="dropdown more-action">
-	                                    <div class="dropdown-action" data-toggle="dropdown"><i class="far fa-ellipsis-h"></i></div>
-	                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiR" data-toggle="modal" data-target="#modalKwitansiR"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropdown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus</span></a></div>
-	                                </div>
-	                            </td>
-	                        </tr>
-	                    </tbody>
-	                </table>
-	            </div>
-	        </div>
-	        <div class="tab-pane fade" id="nav2">
-	            <div class="filter-wrap">
-	                <div class="filter">
-	                    <a class="btn btn-orange" href="#modalKas" data-toggle="modal" data-target="#modalKas"> <i class="fal fa-print mr-2"></i>Cetak Kas</a>
-	                    <div class="search">
-	                        <form>
-	                            <input class="form-control" type="text" placeholder="Cari ..." />
-	                        </form>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="table-wrap">
-	                <table class="table">
-	                    <thead>
-	                        <tr>
-	                            <th><span>No Pembayaran</span></th>
-	                            <th><span>Jenis Kursus</span></th>
-	                            <th><span>Tgl. Pembayaran</span></th>
-	                            <th><span>Terima Dari</span></th>
-	                            <th><span>Jumlah Uang</span></th>
-	                            <th><span>Program</span></th>
-	                            <th><span>Kelas</span></th>
-	                            <th><span class="sr-only">Action</span></th>
-	                        </tr>
-	                    </thead>
-	                    <tbody>
-	                        <tr>
-	                            <td>201901-00001</td>
-	                            <td>Private</td>
-	                            <td>Senin, 10 Jan 2019</td>
-	                            <td>Sheany Inggraeni</td>
-	                            <td class="text-right">Rp 2.150.000<a class="fal fa-info-circle" tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Terbilang" data-content="Dua Juta Seratus Lima Puluh Ribu Rupiah"></a></td>
-	                            <td>Desktop Publishing</td>
-	                            <td>DPB.SHEANY</td>
-	                            <td class="text-right">
-	                                <div class="dropdown more-action">
-	                                    <div class="dropdown-action" data-toggle="dropdown"><i class="far fa-ellipsis-h"></i></div>
-	                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiP" data-toggle="modal" data-target="#modalKwitansiP"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropdown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus</span></a></div>
-	                                </div>
-	                            </td>
-	                        </tr>
-	                        <tr>
-	                            <td>201901-00002</td>
-	                            <td>Regular</td>
-	                            <td>Senin, 10 Jan 2019</td>
-	                            <td>Irfan Adi Pesetya</td>
-	                            <td class="text-right">Rp 300.000<a class="fal fa-info-circle" tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Terbilang" data-content="Tiga Ratus Ribu Rupiah"></a></td>
-	                            <td>Administrasi Perkantoran</td>
-	                            <td>ADM.007</td>
-	                            <td class="text-right">
-	                                <div class="dropdown more-action">
-	                                    <div class="dropdown-action" data-toggle="dropdown"><i class="far fa-ellipsis-h"></i></div>
-	                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiR" data-toggle="modal" data-target="#modalKwitansiR"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropdown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus </span></a></div>
-	                                </div>
-	                            </td>
-	                        </tr>
-	                    </tbody>
-	                </table>
-	            </div>
-	        </div>
-	    </div>
-	</section>
+<div class="page-header">
+	<h1 class="page-title">Pembayaran</h1>
+</div>
 
+<div class="page-content">
+	<div class="panel">
+		<div class="panel-header row gutter-sm">
+			<div class="col-md-8 panel-filter">
+				<div class="row">
+					<div class="col-md-4">
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 panel-action">
+				<a class="btn btn-primary" href="#">Tambah Pembayaran</a>
+			</div>
+		</div>
+		<div class="panel-body">
+			<div class="table-wrap table-responsive" style="min-height: 280px">
+				<table class="table">
+					<thead>
+						<tr>
+							<th><span>No.</span></th>
+							<th><span>No Pembayaran</span></th>
+                            <th><span>Jenis Kursus</span></th>
+                            <th><span>Tgl. Pembayaran</span></th>
+                            <th><span>Terima Dari</span></th>
+                            <th><span>Jumlah Uang</span></th>
+                            <th><span>Program</span></th>
+                            <th><span>Kelas</span></th>
+                            <th><span class="sr-only">Action</span></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="has-more">
+							<td>1.</td>
+                            <td>201901-00001</td>
+                            <td>Private</td>
+                            <td>Senin, 10 Jan 2019</td>
+                            <td>Sheany Inggraeni</td>
+                            <td class="text-right">Rp 2.150.000<a class="fal fa-info-circle" style="display: inline-block; margin-left: 12px; text-decoration: none" tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Terbilang" data-content="Dua Juta Seratus Lima Puluh Ribu Rupiah"></a></td>
+                            <td>Desktop Publishing</td>
+                            <td>DPB.SHEANY</td>
+                            <td class="text-right">
+                                <div class="dropdown more-action">
+                                    <div class="dropdown-action" data-toggle="dropdown">Aksi</div>
+                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiP" data-toggle="modal" data-target="#modalKwitansiP"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropdown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus</span></a></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="has-more">
+							<td>2.</td>
+                            <td>201901-00002</td>
+                            <td>Regular</td>
+                            <td>Senin, 10 Jan 2019</td>
+                            <td>Irfan Adi Pesetya</td>
+                            <td class="text-right">Rp 300.000<a class="fal fa-info-circle" style="display: inline-block; margin-left: 12px; text-decoration: none" tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Terbilang" data-content="Tiga Ratus Ribu Rupiah"></a></td>
+                            <td>Administrasi Perkantoran</td>
+                            <td>ADM.007</td>
+                            <td class="text-right">
+                                <div class="dropdown more-action">
+                                    <div class="dropdown-action" data-toggle="dropdown">Aksi</div>
+                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiR" data-toggle="modal" data-target="#modalKwitansiR"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropdown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus</span></a></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="has-more">
+							<td>3.</td>
+                            <td>201901-00002</td>
+                            <td>Regular</td>
+                            <td>Senin, 10 Jan 2019</td>
+                            <td>Irfan Adi Pesetya</td>
+                            <td class="text-right">Rp 300.000<a class="fal fa-info-circle" style="display: inline-block; margin-left: 12px; text-decoration: none" tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Terbilang" data-content="Tiga Ratus Ribu Rupiah"></a></td>
+                            <td>Administrasi Perkantoran</td>
+                            <td>ADM.007</td>
+                            <td class="text-right">
+                                <div class="dropdown more-action">
+                                    <div class="dropdown-action" data-toggle="dropdown">Aksi</div>
+                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiR" data-toggle="modal" data-target="#modalKwitansiR"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropdown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus </span></a></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="has-more">
+							<td>4.</td>
+                            <td>201901-00002</td>
+                            <td>Regular</td>
+                            <td>Senin, 10 Jan 2019</td>
+                            <td>Irfan Adi Pesetya</td>
+                            <td class="text-right">Rp 300.000<a class="fal fa-info-circle" style="display: inline-block; margin-left: 12px; text-decoration: none" tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Terbilang" data-content="Tiga Ratus Ribu Rupiah"></a></td>
+                            <td>Administrasi Perkantoran</td>
+                            <td>ADM.007</td>
+                            <td class="text-right">
+                                <div class="dropdown more-action">
+                                    <div class="dropdown-action" data-toggle="dropdown">Aksi</div>
+                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiR" data-toggle="modal" data-target="#modalKwitansiR"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus</span></a></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="has-more">
+							<td>5.</td>
+                            <td>201901-00002</td>
+                            <td>Regular</td>
+                            <td>Senin, 10 Jan 2019</td>
+                            <td>Irfan Adi Pesetya</td>
+                            <td class="text-right">Rp 300.000<a class="fal fa-info-circle" style="display: inline-block; margin-left: 12px; text-decoration: none" tabindex="0" data-toggle="popover" data-trigger="focus" data-placement="top" title="Terbilang" data-content="Tiga Ratus Ribu Rupiah"></a></td>
+                            <td>Administrasi Perkantoran</td>
+                            <td>ADM.007</td>
+                            <td class="text-right">
+                                <div class="dropdown more-action">
+                                    <div class="dropdown-action" data-toggle="dropdown">Aksi</div>
+                                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item text-primary" href="#modalKwitansiR" data-toggle="modal" data-target="#modalKwitansiR"><i class="fal fa-print"> </i><span class="ml-2">Cetak</span></a><a class="dropdown-item" href="tariat-pembayaran-edit.html">Ubah</a><a class="dropdown-item" href="#modalDelete" data-toggle="modal" data-target="#modalDelete"> <span class="text-danger">Hapus</span></a></div>
+                                </div>
+                            </td>
+                        </tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </div>
 
 @endsection
@@ -322,4 +230,14 @@
 </div>
 
 
+@endsection
+
+
+@section('addscript')
+	<script type="text/javascript">
+		$(function () {
+			$('[data-toggle="tooltip"]').tooltip();
+			$('[data-toggle="popover"]').popover();
+		})
+	</script>
 @endsection

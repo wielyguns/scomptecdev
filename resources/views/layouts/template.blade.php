@@ -10,6 +10,7 @@
         <meta name="theme-color" content="#404297" />
         <link rel="shortcut icon" href="favicon.ico" />
         <link rel="stylesheet" href="{{ asset('assets/styles/plugins.css') }}" />
+        <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome-pro/css/fontawesome-all.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('assets/styles/main.css') }}" />
     </head>
 
@@ -49,7 +50,7 @@
 		</main>
 		<footer class="site-footer">
             <div class="site-footer-left">&copy; Copyright 2019 by Scomptec. All Rights Reserved.</div>
-            <div class="site-footer-right">Crafted by <a href="#">Rizqy Nurmansyah</a></div>
+            {{-- <div class="site-footer-right">Crafted by <a href="#">Rizqy Nurmansyah</a></div> --}}
         </footer>
     	@yield('modal')
 	</body>

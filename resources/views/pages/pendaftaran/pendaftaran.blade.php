@@ -62,7 +62,7 @@
 									<div class="dropdown-menu dropdown-menu-right">
 										<a class="dropdown-item" href="{{ route('pendaftaran_view', $p->id) }}">Lihat Detail</a>
 	                          			<a class="dropdown-item" href="{{ route('pendaftaran_edit', $p->id) }}">Ubah</a>
-	                          			<a data-id="{{ $p->id }}" data-name="{{ $p->nama }}" class="dropdown-item item-dange btn-delete" href="#modalDelete" data-toggle="modal" data-target="#modalDelete">
+	                          			<a data-id="{{ $p->id }}" data-name="{{ $p->nama }}" class="dropdown-item item-danger btn-delete" href="#modalDelete" data-toggle="modal" data-target="#modalDelete">
 	                          				<span class="text-danger">Hapus</span>
 	                          			</a>
 									</div>
