@@ -20,17 +20,26 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/pendaftaran','PendaftaranController@index')->name('pendaftaran');
+Route::get('/pendaftaran/filter','PendaftaranController@filter')->name('pendaftaran_filter');
 Route::get('/pendaftaran/tambah', 'PendaftaranController@tambah')->name('pendaftaran_add');
 Route::post('/pendaftaran/simpan', 'PendaftaranController@simpan')->name('pendaftaran_store');
 Route::get('/pendaftaran/detail/{id}', 'PendaftaranController@lihat')->name('pendaftaran_view');
 Route::get('/pendaftaran/ubah/{id}', 'PendaftaranController@ubah')->name('pendaftaran_edit');
-Route::get('/pendaftaran/perbarui/{id}', 'PendaftaranController@perbarui')->name('pendaftaran_update');
-Route::get('/pendaftaran/delete/{id}', 'PendaftaranController@hapus')->name('pendaftaran_delete');
+Route::put('/pendaftaran/perbarui/{id}', 'PendaftaranController@perbarui')->name('pendaftaran_update');
+Route::get('/pendaftaran/hapus/{id}', 'PendaftaranController@hapus')->name('pendaftaran_delete');
 
 Route::get('/pembayaran','PembayaranController@index')->name('pembayaran');
+Route::get('/pembayaran/filter','PembayaranController@filter')->name('pembayaran_filter');
+Route::get('/pembayaran/pembayaran-pendaftaran', 'PembayaranController@tambah1')->name('pembayaran_add1');
+Route::get('/pembayaran/Pembayraan-cicilan', 'PembayaranController@tambah2')->name('pembayaran_add2');
+Route::post('/pembayaran/simpan', 'PembayaranController@simpan')->name('pembayaran_store');
+Route::get('/pembayaran/ubah/{id}', 'PembayaranController@ubah')->name('pembayaran_edit');
+Route::put('/pembayaran/perbarui/{id}', 'PembayaranController@perbarui')->name('pembayaran_update');
+Route::get('/pembayaran/hapus/{id}', 'PembayaranController@hapus')->name('pembayaran_delete');
 
 Route::get('/siswa','SiswaController@index')->name('siswa');
 Route::get('/siswa/tambah', 'SiswaController@tambah')->name('siswa_add');
+Route::get('/siswa/get-data', 'SiswaController@get_data_siswa')->name('get_data_siswa');
 Route::post('/siswa/simpan', 'SiswaController@simpan')->name('siswa_store');
 Route::get('/siswa/detail/{id}', 'SiswaController@lihat')->name('siswa_view');
 Route::get('/siswa/ubah/{id}', 'SiswaController@ubah')->name('siswa_edit');
@@ -45,7 +54,8 @@ Route::get('/jadwal/delete/{id}', 'JadwalController@delete')->name('kelas_delete
 
 Route::get('/kelas','KelasController@index')->name('kelas');
 Route::get('/kelas/tambah', 'KelasController@tambah')->name('kelas_add');
-Route::post('/kelas/store', 'KelasController@store')->name('kelas_store');
+Route::get('/kelas/get-kode', 'KelasController@get_kode_kelas')->name('get_kode_kelas');
+Route::post('/kelas/simpan', 'KelasController@simpan')->name('kelas_store');
 Route::get('/kelas/ubah/{id}', 'KelasController@edit')->name('kelas_edit');
 Route::put('/kelas/update/{id}', 'KelasController@update')->name('kelas_update');
 Route::get('/kelas/delete/{id}', 'KelasController@delete')->name('kelas_delete');

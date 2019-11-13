@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Kelas;
 use App\Program_kursus;
-
+use Response;
 class KelasController extends Controller
 {
     /**
@@ -15,16 +15,6 @@ class KelasController extends Controller
      */    
     protected $customMessages;
 
-    public function __construct()
-    {
-        $this->middleware('auth');        
-
-        $this->customMessages = [
-            'required' => 'Kolom ini harus di isi!',
-            'unique' => 'Kode kelas telah digunakan!'
-        ];
-    }   
-
     /**
      * Show the application dashboard.
      *
@@ -33,7 +23,7 @@ class KelasController extends Controller
     public function index()
     {
         // mengambil data
-        $kelas = Kelas::orderBy('kode', 'asc')->paginate(10);
+        $kelas = Kelas::all();
 
         // mengirim data ke view
         return view('pages.kelas.kelas', ['data' => $kelas]);
@@ -42,31 +32,31 @@ class KelasController extends Controller
     public function tambah()
     {
         $program = Program_kursus::orderBy('nama', 'asc')->get();
-
         return view('pages.kelas.kelas_add', ['program' => $program]);
     }
 
-    public function store(Request $request)
+    public function simpan(Request $request)
     {
-        // validasi data
         $rules = [
             'program_kursus_id' => 'required',
-            'kode' => 'required|unique:kelas',
-            'durasi' => 'required',            
-            'kapasitas' => 'required',            
-            'biaya' => 'required',            
+            'kode' => 'required|unique:kelas,kode,',
+            'durasi' => 'required',
+            'kapasitas' => 'required',
+            'jenis_kelas' => 'required',
+        ];        
+
+        $customMessages = [
+            'required' => 'Kolom ini harus di isi!',
+            'unique' => 'Kode kelas telah digunakan!'
         ];
 
-        $this->validate($request, $rules, $this->customMessages);
+        $this->validate($request, $rules, $customMessages);
 
-        // menyimpan datas
         Kelas::create([
             'program_kursus_id' => $request->program_kursus_id,
             'kode' => $request->kode,
             'durasi' => $request->durasi,
             'kapasitas' => $request->kapasitas,
-            'biaya' => getRp($request->biaya),
-            'jenis' => $request->jenis,
         ]);
 
         return redirect()->route('kelas');
@@ -74,42 +64,33 @@ class KelasController extends Controller
 
     public function edit($id)
     {
-        $kelas = Kelas::find($id);
-        $program = Program_kursus::orderBy('nama', 'asc')->get();
-
-        return view('pages.kelas.kelas_edit', ['data' => $kelas, 'program' => $program]);
+        return redirect()->route('kelas');
     }
 
     public function update($id, Request $request)
     {
-        // validasi data
-        $rules = [
-            'program_kursus_id' => 'required',
-            'kode' => 'required|unique:kelas,kode,' . $id,
-            'durasi' => 'required',            
-            'kapasitas' => 'required',            
-            'biaya' => 'required',            
-        ];
-
-        $this->validate($request, $rules, $this->customMessages);
-
-        // update data
-        $kelas = Kelas::find($id);
-        $kelas->program_kursus_id = $request->program_kursus_id;
-        $kelas->kode = $request->kode;
-        $kelas->durasi = $request->durasi;
-        $kelas->kapasitas = $request->kapasitas;
-        $kelas->biaya = getRp($request->biaya);
-        $kelas->jenis = $request->jenis;
-        $kelas->save();
-
         return redirect()->route('kelas');
     }
 
     public function delete($id)
     {
-        $data = Kelas::find($id);
-        $data->delete();
         return redirect()->route('kelas');
+    }
+
+    public function get_kode_kelas(Request $req)
+    {
+        if ($req->jenis_kelas != null and $req->id != null and $req->jenis_kelas == 'REG') {
+             $index = Kelas::selectRaw("max(substring(kode,5)) as kode")
+                          ->where('program_kursus_id',$req->id)
+                          ->where('jenis_kelas',$req->jenis_kelas)
+                          ->first()
+                          ->kode;
+
+            $index = (integer)$index+1;
+
+            return Response::json(['status'=>1,'kode'=>$index]);
+        }else{
+            return Response::json(['status'=>2,'pesan'=>'Data Belum Lengkap']);
+        }
     }
 }

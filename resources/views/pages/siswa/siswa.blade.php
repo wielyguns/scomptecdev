@@ -17,54 +17,11 @@
 				</div>
 			</div>
 			<div class="col-md-4 panel-action">
-				<a class="btn btn-primary" href="{{ route('siswa_add') }}">Tambah Pendaftaran</a>
+				<a class="btn btn-primary" href="{{ route('siswa_add') }}">Tambah Siswa</a>
 			</div>
 		</div>
 		<div class="panel-body">
-			<div class="table-wrap table-responsive" style="min-height: 280px">
-				<table class="table">
-					<thead>
-						<tr>
-							<th width="50">No.</th>
-							<th>ID Siswa</th>
-							<th>Jenis Kursus</th>
-							<th>Program Kursus</th>
-							<th>Nama</th>
-							<th>Email</th>
-							<th>Telepon</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="has-more">
-							<td>1</td>
-							<td>000001</td>
-							<td>Private</td>
-							<td>Aplikasi Perkantor</td>
-							<td>Jhon Doe</td>
-							<td><a href="mailto:john@gmail.com">john@gmail.com</a></td>
-							<td><a href="tel:08131235624">08131235624</a></td>
-							<td align="right">
-								<div class="dropdown more-action">
-									<div class="dropdown-action" data-toggle="dropdown">Aksi</div>
-									<div class="dropdown-menu dropdown-menu-right">
-										<a class="dropdown-item" href="{{ route('pendaftaran_view', 1) }}">Lihat Detail</a>
-	                          			<a class="dropdown-item" href="{{ route('pendaftaran_edit', 1) }}">Ubah</a>
-	                          			<a data-id="" data-name="" class="dropdown-item item-dange btn-delete" href="#modalDelete" data-toggle="modal" data-target="#modalDelete">
-	                          				<span class="text-danger">Hapus</span>
-	                          			</a>
-									</div>
-								</div>
-							</td>
-						</tr>
-						{{-- <tr>
-							<td colspan="9" align="center">
-								<div class="table-no-data">Belum ada data jadwal. <a class="btn-link" href="{{ route('jadwal_add') }}">tambah data</a></div>
-							</td>
-						</tr> --}}
-					</tbody>
-				</table>
-			</div>
+			
 		</div>
 	</div>
 </div>

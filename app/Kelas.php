@@ -9,7 +9,7 @@ class Kelas extends Model
     //
     protected $table = 'kelas';
 
-    protected $fillable = ['program_kursus_id', 'kode', 'durasi', 'kapasitas', 'biaya', 'jenis'];
+    protected $fillable = ['program_kursus_id', 'kode', 'durasi', 'kapasitas', 'biaya', 'jenis','jenis_kelas'];
 
     public function program_kursus()
     {

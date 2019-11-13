@@ -18,7 +18,7 @@
 				</div>
 			</div>
 			<div class="col-md-4 panel-action">
-				<a class="btn btn-primary" href="#">Tambah Kelas</a>
+				<a class="btn btn-primary" href="{{ route('kelas_add') }}">Tambah Kelas</a>
 			</div>
 		</div>
 		<div class="panel-body">
@@ -26,35 +26,20 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th width="50">No.</th>
 							<th>Kode</th>
 							<th width="25%">Program Kursus</th>
-							<th>Durasi</th>
-							<th>Kapasitas</th>
-							<th>Biaya</th>
-							<th width="100">Tipe Kelas</th>
-							<th></th>
+							<th class="no-sort">Durasi</th>
+							<th class="no-sort">Kapasitas</th>
+							<th class="no-sort" style="width: 80px"></th>
 						</tr>
 					</thead>
 					<tbody>
-						<?php 
-							$page = $data->currentPage();
-							if($page > 1) {
-								$no = ($page - 1) * 10;	
-							} else {
-								$no = 0;
-							}
-						?>
 						@forelse($data as $p)
-						<?php $no++ ;?>
 						<tr class="has-more">
-							<td>{{ $no }}</td>
 							<td>{{ $p->kode }}</td>
 							<td>{{ $p->program_kursus->nama }}</td>
 							<td>{{ $p->durasi }} menit</td>
 							<td>{{ $p->kapasitas }} peserta</td>
-							<td>{{ setRp($p->biaya) }}</td>
-							<td>{{ $p->jenis }}</td>
 							<td align="right">
 								<div class="dropdown more-action">
 	                          		<div class="dropdown-action" data-toggle="dropdown">Aksi</div>
@@ -76,9 +61,6 @@
 						@endforelse
 					</tbody>
 				</table>
-				<div class="table-pagination">
-					{{ $data->links('layouts.pagination') }}
-				</div>
 			</div>
 		</div>
 	</div>

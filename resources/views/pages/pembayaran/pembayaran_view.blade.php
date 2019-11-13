@@ -32,23 +32,11 @@
                             </div>
                             <div class="col-md-8"><span>{{ $pendaftar->program_kursus->nama }}</span></div>
                         </div>
-                        <div class="detail-item row">
+                         <div class="detail-item row">
                             <div class="col-md-4">
-                                <Label>Biaya Pendaftaran</Label>
+                                <Label>Pembayaran Uang Muka</Label>
                             </div>
-                            <div class="col-md-8"><span>Rp. {{ setRp($pendaftar->biaya_pendaftaran) }}</span></div>
-                        </div>
-                        <div class="detail-item row">
-                            <div class="col-md-4">
-                                <Label>Biaya Kursus</Label>
-                            </div>
-                            <div class="col-md-8"><span>Rp. {{ setRp($pendaftar->biaya_kursus) }}</span></div>
-                        </div>
-                        <div class="detail-item row">
-                            <div class="col-md-4">
-                                <Label>Status Pembayaran</Label>
-                            </div>
-                            <div class="col-md-8"><span class="badge {{ $pendaftar->status_pembayaran == 'Lunas' ? 'badge-success' : 'badge-danger' }}">{{ $pendaftar->status_pembayaran }}</span></div>
+                            <div class="col-md-8"><span class="badge {{ $pendaftar->status_uang_muka == 'Lunas' ? 'badge-success' : 'badge-danger' }}">{{ $pendaftar->status_uang_muka }}</span></div>
                         </div>
                         <div class="detail-item row">
                             <div class="col-md-4">

@@ -29,7 +29,7 @@ if (! function_exists('getTime')) {
 
 if (! function_exists('setRp')) {
     function setRp($val) {
-        $format = "Rp " . number_format($val,0,',','.');
+        $format = number_format($val,0,',','.');
         return $format;
     }
 }
@@ -38,5 +38,25 @@ if (! function_exists('getRp')) {
     function getRp($val) {
         $format = str_replace(".", "", $val);
         return $format;
+    }
+}
+
+if (! function_exists('getMonth')) {
+    function getMonth() {
+        $temp = [];
+        array_push($temp,['name'=>'Januari','value'=>'01']);
+        array_push($temp,['name'=>'Februari','value'=>'02']);
+        array_push($temp,['name'=>'Maret','value'=>'03']);
+        array_push($temp,['name'=>'April','value'=>'04']);
+        array_push($temp,['name'=>'Mei','value'=>'05']);
+        array_push($temp,['name'=>'Juni','value'=>'06']);
+        array_push($temp,['name'=>'Juli','value'=>'07']);
+        array_push($temp,['name'=>'Agustus','value'=>'08']);
+        array_push($temp,['name'=>'September','value'=>'09']);
+        array_push($temp,['name'=>'Oktober','value'=>'10']);
+        array_push($temp,['name'=>'November','value'=>'11']);
+        array_push($temp,['name'=>'Desember','value'=>'12']);
+        $temp = collect($temp);
+        return $temp;
     }
 }

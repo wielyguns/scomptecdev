@@ -26,36 +26,39 @@ class ProgramKursusController extends Controller
     public function index()
     {
         // mengambil data
-        $pk = Program_kursus::orderBy('nama', 'asc')->paginate(10);;
+        $pk = Program_kursus::orderBy('nama', 'asc')->get();
 
         // mengirim data ke view
-        return view('pages.program_kursus', ['program_kursus' => $pk]);
+        return view('pages.program-kursus.program_kursus', ['program_kursus' => $pk]);
     }
 
     public function tambah()
     {
-        return view('pages.program_kursus_add');
+        return view('pages.program-kursus.program_kursus_add');
     }
 
     public function store(Request $request)
     {
-        // validasi data
         $rules = [
             'nama' => 'required',
-            'kode' => ['required','unique:program_kursus']
-        ];
-
+            'kode' => 'required|unique:program_kursus,kode,',
+            'biaya_pendaftaran' => 'required',
+            'biaya_reguler' => 'required',
+            'biaya_private' => 'required',
+        ];        
         $customMessages = [
             'required' => 'Kolom ini harus di isi!',
             'unique' => 'Kode program telah digunakan!'
         ];
-
         $this->validate($request, $rules, $customMessages);
 
         // menyimpan data
         Program_kursus::create([
             'nama' => $request->nama,
-            'kode' => $request->kode
+            'kode' => $request->kode,
+            'biaya_pendaftaran' => $request->biaya_pendaftaran,
+            'biaya_reguler' => $request->biaya_reguler,
+            'biaya_private' => $request->biaya_private,
         ]);
 
         return redirect()->route('program_kursus');
@@ -64,30 +67,33 @@ class ProgramKursusController extends Controller
     public function edit($id)
     {
         $pk = Program_kursus::find($id);
-        return view('pages.program_kursus_edit', ['program_kursus' => $pk]);
+        return view('pages.program-kursus.program_kursus_edit', ['program_kursus' => $pk]);
     }
 
 
 
     public function update($id, Request $request)
     {
-        // validasi data
         $rules = [
             'nama' => 'required',
-            'kode' => 'required|unique:program_kursus,kode,' . $id
+            'kode' => 'required|unique:program_kursus,kode,' . $id,
+            'biaya_pendaftaran' => 'required',
+            'biaya_reguler' => 'required',
+            'biaya_private' => 'required',
         ];        
-
         $customMessages = [
             'required' => 'Kolom ini harus di isi!',
             'unique' => 'Kode program telah digunakan!'
         ];
-
         $this->validate($request, $rules, $customMessages);
 
         // update data
         $pk = Program_kursus::find($id);
         $pk->nama = $request->nama;
         $pk->kode = $request->kode;
+        $pk->biaya_pendaftaran = $request->biaya_pendaftaran;
+        $pk->biaya_reguler = $request->biaya_reguler;
+        $pk->biaya_private = $request->biaya_private;
         $pk->save();
 
         return redirect()->route('program_kursus');

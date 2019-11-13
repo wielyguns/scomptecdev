@@ -4,162 +4,176 @@
 
 @section('content')
 
-<div class="box-content">
-	<section class="content-head">
-		<div class="content-title">
-			<h1 class="title">Tambah Kelas</h1>
-		</div>
-		<div class="content-action">
-			<a class="back" href="{{ route('kelas') }}">Kembali</a>        
-		</div>
-	</section>
-	<section class="content-wrap">
-		<div class="form-wrap row">
-			<div class="col-8">
-				<form method="post" action="{{ route('kelas_store') }}">
+<div class="page-header">
+	<h1 class="page-title">Kelas</h1>
+</div>
+
+<div class="page-content">
+	<div class="panel">
+		<div class="panel-body">
+			<div class="form-wrap">
+				<form class="form" method="post" action="{{ route('kelas_store') }}">
 					{{ csrf_field() }}
+					<div class="row">
+						<div class="col-md-8">
 
+							<h3 class="form-heading">Tambah Kelas</h3>
 
-					<div class="form-group row">
-						<div class="col-4"><label for="jenis">Tipe</label></div>
-						<div class="col-8">
-							<div class="custom-control custom-radio custom-control-inline">
-								<input class="custom-control-input" id="jenis1" type="radio" name="jenis" value="Reguler" checked="true">
-								<label class="custom-control-label" for="jenis1">Reguler</label>
+							<div class="form-group row">
+								<div class="col-4"><label for="program_kursus_id">Program Kursus<span class="required">*</span></label></div>
+								<div class="col-8">
+									<select id="program_kursus_id" class="select-control" title="Pilih program kursus" data-live-search="true" data-width="100%" name="program_kursus_id">
+										@foreach($program as $p)
+										<option value="{{ $p->id }}" data-kode="{{ $p->kode }}" data-p1="{{ setRp($p->biaya_pendaftaran) }}" data-p2="{{ setRp($p->biaya_reguler) }}" data-p3="{{ setRp($p->biaya_private) }}" {{ (old("program_kursus_id") == $p->id ? "selected":"") }}>{{ $p->nama }}</option>
+										@endforeach()
+									</select>
+									@if($errors->has('program_kursus_id'))
+										<span class="form-invalid"><i class="fas fa-times-circle icon"></i> {{ $errors->first('program_kursus_id') }}</span>
+									@endif
+								</div>
 							</div>
-							<div class="custom-control custom-radio custom-control-inline">
-								<input class="custom-control-input" id="jenis2" type="radio" name="jenis" value="Private">
-								<label class="custom-control-label" for="jenis2">Private</label>
-							</div>
-						</div>
-					</div>
 
-					<div class="form-group row">
-						<div class="col-4"><label for="program_kursus_id">Program Kursus<span class="required">*</span></label></div>
-						<div class="col-8">
-							<select id="program_kursus_id" class="select-control {{ $errors->has('program_kursus_id') != "" ? "invalid" : "" }}" title="Pilih program kursus" data-live-search="true" name="program_kursus_id">
-								@foreach($program as $p)
-								<option value="{{ $p->id }}" data-kode="{{ $p->kode }}" {{ (old("program_kursus_id") == $p->id ? "selected":"") }}>{{ $p->nama }}</option>
-								@endforeach()
-							</select>
-							@if($errors->has('program_kursus_id'))
-								<span class="form-invalid"><i class="fas fa-times-circle icon"></i> {{ $errors->first('program_kursus_id') }}</span>
-							@endif
-						</div>
-					</div>
-
-					<div class="form-group row">
-						<div class="col-4"><label for="kode">Kode<span class="required">*</span></label></div>
-						<div class="col-8">
-							<div class="input-group {{ $errors->has('kode') != "" ? "invalid" : "" }}">
-								<div class="input-group-prepend"><span class="input-group-text" id="kode_prefix" style="min-width: 55px"></span></div>
-								<input class="form-control" id="kode_name" type="text" name="kode_name" value="{{ old('kode_name') }}">
+							<div class="form-group row">
+								<div class="col-4"><label>Jenis Kelas</label></div>
+								<div class="col-8">
+									<select id="jenis_kelas" class="select-control" title="Pilih Jenis Kelas"data-live-search="true" data-width="100%" name="jenis_kelas">
+										<option value="REG">Reguler</option>
+										<option value="PRI">Private</option>
+									</select>
+									@if($errors->has('jenis_kelas'))
+										<span class="form-invalid"><i class="fas fa-times-circle icon"></i> {{ $errors->first('jenis_kelas') }}</span>
+									@endif
+								</div>
 							</div>
-							<input id="kode" type="hidden" name="kode" value="{{ old('kode') }}">
-							@if($errors->has('kode'))
-								<span class="form-invalid"><i class="fas fa-times-circle icon"></i> {{ $errors->first('kode') }}</span>
-							@endif
-						</div>
-					</div>
 
-					<div class="form-group row">
-						<div class="col-4"><label for="durasi">Durasi<span class="required">*</span></label></label></div>
-						<div class="col-8">
-							<div class="input-group {{ $errors->has('durasi') != "" ? "invalid" : "" }}">
-								<input class="form-control number" type="text" name="durasi" value="{{ old('durasi') }}">
-								<div class="input-group-append"><span class="input-group-text">menit</span></div>
+							<div class="form-group row">
+								<div class="col-4"><label>Kode</label></div>
+								<div class="col-8">
+									<div class="input-group">
+										<div class="input-group-prepend"><span class="input-group-text">
+											<span id="kode_prefix"></span>
+										</div>
+										<input type="text" name="kode_sufix" readonly="" class="form-control">
+									</div>
+									<input type="text" name="kode">
+									@if($errors->has('kode'))
+										<span class="form-invalid"><i class="fas fa-times-circle icon"></i> {{ $errors->first('kode') }}</span>
+									@endif
+								</div>
 							</div>
-							@if($errors->has('durasi'))
-								<span class="form-invalid"><i class="fas fa-times-circle icon"></i> {{ $errors->first('durasi') }}</span>
-							@endif
-						</div>
-					</div>
 
-					<div class="form-group row">
-						<div class="col-4"><label for="kapasitas">Kapasitas<span class="required">*</span></label></label></div>
-						<div class="col-8">
-							<div class="input-group {{ $errors->has('kapasitas') != "" ? "invalid" : "" }}" id="kapasitas">
-								<input class="form-control number" type="text" name="kapasitas" value="{{ old('kapasitas') }}">
-								<div class="input-group-append"><span class="input-group-text">peserta</span></div>
+							<div class="form-group row">
+								<div class="col-4"><label for="durasi">Durasi</label></div>
+								<div class="col-8">
+									<div class="row">
+										<div class="col-6">
+											<select id="durasi" class="select-control" title="Pilih durasi" data-width="100%" name="durasi">
+												<option value="45">45</option>
+												<option value="60">60</option>
+												<option value="90">90</option>
+											</select>
+										</div>
+										<div class="col-6"><span class="form-text-control">menit</span></div>
+									</div>
+									@if($errors->has('durasi'))
+										<span class="form-invalid"><i class="fas fa-times-circle icon"></i> {{ $errors->first('durasi') }}</span>
+									@endif
+								</div>
 							</div>
-							@if($errors->has('kapasitas'))
-								<span class="form-invalid"><i class="fas fa-times-circle icon"></i> {{ $errors->first('kapasitas') }}</span>
-							@endif
-						</div>
-					</div>
 
-					<div class="form-group row">
-						<div class="col-4"><label for="biaya">Biaya<span class="required">*</span></label></label></div>
-						<div class="col-8">
-							<div class="input-group {{ $errors->has('biaya') != "" ? "invalid" : "" }}">
-								<div class="input-group-prepend"><span class="input-group-text">Rp</span></div>
-								<input class="form-control number rupiah" type="text" name="biaya" value="{{ old('biaya') }}">
+							<div class="form-group row">
+								<div class="col-4"><label for="kapasitas">Kapasitas</label></div>
+								<div class="col-8">
+									<div class="row">
+										<div class="col-6">
+											<input type="text" name="kapasitas" class="form-control">
+										</div>
+										<div class="col-6"><span class="form-text-control">peserta</span></div>
+
+									</div>
+									@if($errors->has('kapasitas'))
+										<span class="form-invalid"><i class="fas fa-times-circle icon"></i> {{ $errors->first('kapasitas') }}</span>
+									@endif
+								</div>
 							</div>
-							@if($errors->has('biaya'))
-								<span class="form-invalid"><i class="fas fa-times-circle icon"></i> {{ $errors->first('biaya') }}</span>
-							@endif
+
 						</div>
-					</div>
-					<div class="form-action">
-						<div class="ml-auto"><a class="btn btn-link" href="{{ route('kelas') }}">Kembali</a>
-							<button class="btn btn-primary" type="submit">Simpan</button>
+
+						<div class="col-md-3 ml-auto">
+							<div class="form-action form-action-sidebar sticky-me">
+								<button class="btn btn-primary btn-block" type="submit">Simpan</button>
+								<a class="btn btn-transparent btn-block" href="{{ route('kelas') }}">Kembali</a>
+							</div>
 						</div>
 					</div>
 				</form>
 			</div>
 		</div>
-	</section>
+	</div>
+</div>
 
 @endsection
 
 @section('addscript')
 
 <script type="text/javascript">
-	
-	var $kVal = $('input[name=kapasitas]').val();
 
-	$('input[name=jenis]').change(function(){
-		var $t = $(this),
-			$val = $t.val();
-		console.log($val);
-		if($val == "Private") {
-			$('input[name=kapasitas]').val("1");
-			$('#kapasitas').closest('.form-group').slideUp();
-		}else{
-			$('input[name=kapasitas]').val($kVal);
-			$('#kapasitas').closest('.form-group').slideDown();
+$('#program_kursus_id').change(function(){
+	$.ajax({
+		url:'{{ route('get_kode_kelas') }}',
+		data:{
+			id(){
+				return $('#program_kursus_id').val();
+			},
+			jenis_kelas(){
+				return $('#jenis_kelas').val();
+			}
+		},
+		type:'GET',
+		dataType:'json',
+		success:function(res){
+			var t = $('#program_kursus_id'),
+			p = t.find('option:selected').data('kode'),
+			s = $('input[name=kode_sufix]').val();
+
+			$('#kode_prefix').text(p);
+
+			if (res.status == 1) {
+				$('input[name=kode]').val(p+'.'+res.kode);
+				$('input[name=kode_sufix]').val(res.kode);
+			}else{
+				$('input[name=kode]').val(p+'.'+s);
+			}
+		},
+		error:function(res){
+			$('#program_kursus_id').change();
 		}
 	})
-	
-	$('#program_kursus_id').change(function(){
-		var $t = $(this),
-			$id = $t.val(),
-			$kodePrefix = $t.find(':selected').data('kode'),
-			$kodeName = $('#kode_name').val(),
-			$kode = $kodePrefix +"."+ $kodeName;
+})
 
-		$('#kode_prefix').text($kodePrefix);
-		$('#kode').val($kode);
-	})
 
-	$('#kode_prefix').each(function(){
-		var $t = $(this),
-			$select = $('#program_kursus_id'),
-			$kode = $select.find(':selected').data('kode'),
-			$pVal = $select.val();
-		
-		if($pVal !== "") {
-			$t.text($kode);
-		}
-	})
+$('input[name=kode_sufix]').keyup(function (){
+	var t = $(this),
+		p = $('#program_kursus_id').find('option:selected').data('kode'),
+		s = t.val();
+	$('input[name=kode]').val(p+'.'+s);	
+})
 
-	$('#kode_name').keyup(function(){
-		var $t = $(this),
-			$kodePrefix = $('#program_kursus_id').find(':selected').data('kode'),
-			$kodeName = $t.val(),
-			$kode = $kodePrefix +"."+ $kodeName;
-		$('#kode').val($kode);
-	})
+$('#jenis_kelas').change(function(){
+	$('#program_kursus_id').change();
+	if ($(this).val() == 'PRI') {
+		$('input[name=kapasitas]').prop('readonly',true);
+		$('input[name=kapasitas]').val(1);
+		$('input[name=kode_sufix]').prop('readonly',false);
+		$('input[name=kode_sufix]').val('');
+		$('input[name=kode]').val('');
+	}else{
+		$('input[name=kapasitas]').prop('readonly',false);
+		$('input[name=kode_sufix]').prop('readonly',true);
+		$('input[name=kapasitas]').val('');
+	}
+})
+
 </script>
 
 @endsection

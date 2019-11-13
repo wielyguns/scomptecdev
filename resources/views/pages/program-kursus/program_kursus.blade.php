@@ -20,7 +20,7 @@
 				</div>
 			</div>
 			<div class="col-md-4 panel-action">
-				<a class="btn btn-primary" href="{{ route('program_kursus_add') }}">Tambah Pendaftaran</a>
+				<a class="btn btn-primary" href="{{ route('program_kursus_add') }}">Tambah Data</a>
 			</div>
 		</div>
 		<div class="panel-body">
@@ -29,9 +29,11 @@
 					<thead>
 						<tr>
 							<th>Nama</th>
-							<th width="200">Kode</th>
-							<th width="220">Tgl. Dibuat</th>
-							<th style="width: 75px"></th>
+							<th width="80">Kode</th>
+							<th class="no-sort" width="150">Biaya Pendaftaran</th>
+							<th class="no-sort" width="150">Biaya Reguler</th>
+							<th class="no-sort" width="150">Biaya Private</th>
+							<th class="no-sort" style="width: 75px"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -40,10 +42,9 @@
 						<tr class="has-more">
 							<td>{{ $p->nama }}</td>
 							<td>{{ $p->kode }}</td>
-							<td>
-								<span class="date">{{ tgl_id($p->created_at) }}</span>
-								<span class="time"> | {{ getTime($p->created_at) }}</span>
-							</td>
+							<td align="right">{{ setRp($p->biaya_pendaftaran) }}</td>
+							<td align="right">{{ setRp($p->biaya_reguler) }}</td>
+							<td align="right">{{ setRp($p->biaya_private) }}</td>
 							<td align="right">
 								<div class="dropdown more-action">
 									<div class="dropdown-action" data-toggle="dropdown">Aksi</div>
@@ -65,9 +66,6 @@
 						@endforelse
 					</tbody>
 				</table>
-				{{-- <div class="table-pagination">
-					{{ $program_kursus->links('layouts.pagination') }}
-				</div> --}}
 			</div>
 		</div>
 	</div>
@@ -104,25 +102,25 @@
 
 <script type="text/javascript">
 
-	$('#pkTable').dataTable({
-        "oLanguage": {
-            "sLengthMenu": '<span class="filter-label">Tampilkan</span><select class="select-control" data-width="60px">'+
-                '<option value="10">10</option>'+
-                '<option value="20">20</option>'+
-                '<option value="30">30</option>'+
-                '</select>',
-            "sSearch": '',
-            "sZeroRecords": 'Belum ada data!',
-            "sInfo": 'Menampilkan _START_ sampai _END_ dari _TOTAL_ data',
-            "oPaginate": {
-                "sNext": '<i class="fas fa-chevron-right"></i>',
-                "sPrevious": '<i class="fas fa-chevron-left"></i>',
-            }
-        },
-        "initComplete": function( settings, json ) {
-            $(".select-control").selectpicker({style:"btn-select",size:4,liveSearchPlaceholder:"Cari disini.."})
-        }
-    });
+ // $('#pkTable').dataTable({
+ //        "oLanguage": {
+ //            "sLengthMenu": '<span class="filter-label">Tampilkan</span><select class="select-control" data-width="60px">'+
+ //                '<option value="10">10</option>'+
+ //                '<option value="20">20</option>'+
+ //                '<option value="30">30</option>'+
+ //                '</select>',
+ //            "sSearch": '',
+ //            "sZeroRecords": 'Data tidak ditemukan.',
+ //            "sInfo": 'Menampilkan _START_ sampai _END_ dari _TOTAL_ data',
+ //            "oPaginate": {
+ //                "sNext": '<i class="fas fa-chevron-right"></i>',
+ //                "sPrevious": '<i class="fas fa-chevron-left"></i>',
+ //            }
+ //        },
+ //        "initComplete": function( settings, json ) {
+ //            $(".select-control").selectpicker({style:"btn-select",size:4,liveSearchPlaceholder:"Cari disini.."})
+ //        }
+ //    });
 
 	$('.btn-delete').each(function(){
 		var $t = $(this),

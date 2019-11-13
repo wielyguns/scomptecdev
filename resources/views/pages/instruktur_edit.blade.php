@@ -12,7 +12,7 @@
 	<div class="panel">
 		<div class="panel-body">
 			<div class="form-wrap">
-				<form class="form" method="post" action="{{ route('instruktur_store') }}">
+				<form class="form" method="post" action="{{ route('instruktur_update', $instruktur->id) }}">
 					{{ csrf_field() }}
 					{{ method_field('PUT') }}
 					<div class="row">

@@ -437,6 +437,20 @@ textarea.form-control { resize: none; }
 
 .detail-item label { color: #37474f; font-weight: 500; margin: 0; }
 
+.sidebar { text-align: left; padding: 20px 20px 30px; border-left: 1px solid #e4eaec; }
+
+.side-menu { margin: 0; padding: 0; list-style: none; }
+
+.side-menu-item { display: block; width: 100%; margin-bottom: 3px; }
+
+.side-menu-separator { display: block; width: 100%; margin: 16px 0; }
+
+.side-menu-link { color: #6c757d; background-color: transparent; transition: all .3s ease; display: block; padding: 6px 12px; border-radius: 3px; }
+
+.side-menu-link:hover { color: #212121; background-color: #e4eaec; text-decoration: none; }
+
+.side-menu-link.text-danger:hover { color: #FFFFFF !important; background-color: #e74c3c; }
+
 /* Responsive */
 @media (max-width: 1025px) { .site-user-info { display: none; }
   .site-header-logo a, .site-header-logo img { height: 32px; margin: 4px 0; }

@@ -9,7 +9,7 @@ class Program_kursus extends Model
     //
     protected $table = "program_kursus";
 
-    protected $fillable = ['nama','kode'];
+    protected $fillable = ['nama','kode','biaya_pendaftaran','biaya_reguler','biaya_private'];
 
     public function kelas()
     {
